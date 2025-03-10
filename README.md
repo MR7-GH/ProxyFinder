@@ -5,7 +5,7 @@ ProxyFinder is a Python tool for downloading and testing proxies that work on yo
 ## Features
 - Fetch up to 1000 proxies.
 - Check which proxies are working.
-- Output results in normal or JSON format.
+- Output results in JSON format.
 - Generate a ProxyChains configuration file.
 
 ## Installation
@@ -16,9 +16,7 @@ pip install -r requirements.txt
 ## Usage
 Run ProxyFinder with the following options:
 ```sh
-python proxyfinder.py --all          # Get all 1000 proxies (without testing)
 python proxyfinder.py --working      # Get only working proxies
-python proxyfinder.py --json         # Output in JSON format
 python proxyfinder.py --proxychains  # Generate a ProxyChains configuration file
 ```
 
@@ -29,22 +27,31 @@ python proxyfinder.py --working --json
 
 ## Output Examples
 ### Normal Output
-```
-Fetching proxies...
-Testing proxies...
-Working proxies:
-123.45.67.89:8080
-98.76.54.32:3128
+```json
+[
+  {
+    "ip": "27.79.194.186",
+    "protocols": [
+      "http"
+    ],
+    "port": "16000",
+    "responseTime": 404
+  },
+  {
+    "ip": "123.30.154.171",
+    "protocols": [
+      "http"
+    ],
+    "port": "7777",
+    "responseTime": 144
+  },
+]  
 ```
 
-### JSON Output
+### ProxyChain Output
 ```json
-{
-  "working_proxies": [
-    "123.45.67.89:8080",
-    "98.76.54.32:3128"
-  ]
-}
+http 27.79.194.186 16000
+http 123.30.154.171 7777
 ```
 
 ## License
