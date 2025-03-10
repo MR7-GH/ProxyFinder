@@ -87,12 +87,9 @@ if __name__ == "__main__":
     parser.add_argument('--working', action='store_true', help='Test and save only working proxies')
     parser.add_argument('--proxychain', action='store_true', help='Output in ProxyChain format')
     args = parser.parse_args()
-
-    # Fetch initial proxies
     proxies = fetch_proxies()
     print(f"Initial proxy count: {len(proxies)}")
 
-    # Test proxies if requested
     if args.working:
         print("Testing proxies...")
         with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
@@ -104,5 +101,4 @@ if __name__ == "__main__":
                     proxies.append(result)
         print(f"Working proxies remaining: {len(proxies)}")
 
-    # Save results
     save_proxies(proxies, args.proxychain)
