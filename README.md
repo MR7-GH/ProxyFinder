@@ -1,6 +1,6 @@
 # ProxyFinder
 
-ProxyFinder is a Python tool for downloading and testing proxies that work on your system. It supports normal and JSON output formats and can generate a configuration file for the ProxyChains tool.
+ProxyFinder is a Python tool for downloading and testing proxies that work on your system. It supports JSON output format and can generate a configuration file for the ProxyChains tool.
 
 ## Features
 - Fetch up to 1000 proxies.
@@ -16,13 +16,14 @@ pip install -r requirements.txt
 ## Usage
 Run ProxyFinder with the following options:
 ```sh
-python proxyfinder.py --working      # Get only working proxies
-python proxyfinder.py --proxychains  # Generate a ProxyChains configuration file
+python proxyfinder.py   
 ```
 
 You can combine options as needed:
 ```sh
-python proxyfinder.py --working --json
+python proxyfinder.py --working      # Get and test proxies
+python proxyfinder.py --proxychains  # Generate a ProxyChains configuration file
+
 ```
 
 ## Output Examples
